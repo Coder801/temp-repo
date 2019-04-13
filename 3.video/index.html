@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+  <style>
+    body {
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #D66D75;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to top, #E29587, #D66D75);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to top, #E29587, #D66D75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    video {
+      width: 100%;
+      background-color: #fff;
+    }
+  </style>
+
+  <div class="container">
+    <video poster="video/duel.jpg">
+      <source src="video.ogv" type='video/ogg; codecs="theora, vorbis"'>
+      <source src="video.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+      <source src="video.webm" type='video/webm; codecs="vp8, vorbis"'>
+      Тег video не поддерживается вашим браузером. 
+      <a href="video.mp4">Скачайте видео</a>.
+      </video>
+      <button>Toggle Play</button>
+      <button class="move">+ 10s</button>
+  </div>
+
+  <script>
+    const video = document.querySelector('video');
+    const button = document.querySelector('button');
+    const move = document.querySelector('.move');
+
+    button.addEventListener('click', event => {
+      const method = video.paused ? 'play' : 'pause';
+      video[method]();
+    })
+
+    move.addEventListener('click', event => {
+      
+      video.currentTime = video.currentTime + 10;
+    })
+  </script>
+  
+</body>
+</html>
